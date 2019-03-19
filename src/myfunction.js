@@ -2,21 +2,20 @@ let csvToJson = require('convert-csv-to-json');
 let matches_data = csvToJson.fieldDelimiter(',').getJsonFromCsv('matches.csv');
 let deliveries_data = csvToJson.fieldDelimiter(',').getJsonFromCsv('deliveries.csv');
 
+//first
 
-//1 Question
-
-/*
-let YearlyPlayedMatchsData = {};
-    for (let j = 1; j < matches_data.length; j++) {
-        YearlyPlayedMatchsData[matches_data[j].season] = YearlyPlayedMatchsData.hasOwnProperty(matches_data[j].season)? ++YearlyPlayedMatchsData[matches_data[j].season] : 1;
+const getNoOfMatchesPlayed = (data) => {
+    let YearlyPlayedMatchsData = {};
+    for (let j = 1; j < data.length; j++) {
+        YearlyPlayedMatchsData[data[j].season] = YearlyPlayedMatchsData.hasOwnProperty(data[j].season)? ++YearlyPlayedMatchsData[matches_data[j].season] : 1;
     }
-console.log(YearlyPlayedMatchsData);
-*/
+ console.log(YearlyPlayedMatchsData);
+};
 
 
-//2 Question 
-//getNoOfMatchesWonPerTeamPerYear
-/* let myuniqueArr = [];
+// second
+const getNoOfMatchesWonPerTeamPerYear = (data) => {
+    let myuniqueArr = [];
 for (let i = 0; i < matches_data.length; i++) {
     if (!myuniqueArr.includes(parseInt(matches_data[i].season))) myuniqueArr.push(parseInt(matches_data[i].season));
 }
@@ -30,35 +29,31 @@ for (let i = 0; i < myuniqueArr.length; i++) {
         }
     }
   parent[myuniqueArr[i]] = child; 
-
 }
 console.log(parent);
-*/
+};
 
-
-/* // 3 Question
-// 3. Extra runs conceded per team in 2016
-// export const getExtraRunsPerTeamForYear = () => {};
-let extrarun = {};
-let matches_id = [];
- for (let i = 1; i < matches_data.length; i++) {
-     if (matches_data[i].season === '2016') matches_id.push(matches_data[i].id);  
- }
- for(let i=0;i< deliveries_data.length; i++){
-     if(matches_id.includes(deliveries_data[i].match_id)){
-         extrarun[deliveries_data[i].bowling_team] = extrarun.hasOwnProperty(deliveries_data[i].bowling_team)? extrarun[deliveries_data[i].bowling_team] + parseInt(deliveries_data[i].extra_runs) : parseInt(deliveries_data[i].extra_runs);
+//third
+ const getExtraRunsPerTeamForYear = (matches_data,deliveries_data) => {
+    let extrarun = {};
+    let matches_id = [];
+     for (let i = 1; i < matches_data.length; i++) {
+         if (matches_data[i].season === '2016') matches_id.push(matches_data[i].id);  
      }
- }
- console.log(extrarun);
- */
+     for(let i=0;i< deliveries_data.length; i++){
+         if(matches_id.includes(deliveries_data[i].match_id)){
+             extrarun[deliveries_data[i].bowling_team] = extrarun.hasOwnProperty(deliveries_data[i].bowling_team)? extrarun[deliveries_data[i].bowling_team] + parseInt(deliveries_data[i].extra_runs) : parseInt(deliveries_data[i].extra_runs);
+         }
+     }
+     console.log(extrarun);
 
-//4 Question
-// //4. Top 10 economical bowlers in 2015
-// Implement the 4 functions, one for each task.
-// Write unit tests for all 4 functions
-// Use the functions results to dump json files
-/*
-let totalballs_perbowlers = {};
+};
+
+
+//fourth
+
+const getEconomicalBowlersForYear = (matches_data, deliveries_data) => {
+    let totalballs_perbowlers = {};
 let totalrun_perbowlers = {};
 let higest_Economy_bowler = {};
 
@@ -80,7 +75,6 @@ let bowlers = Object.keys(totalballs_perbowlers);
 for (let i = 0; i < bowlers.length; i++) {
     higest_Economy_bowler[bowlers[i]] = (totalrun_perbowlers[bowlers[i]]) / (Math.ceil(totalballs_perbowlers[bowlers[i]]) / 6);
 }
-//console.log(higest_Economy_bowler);
 //sorting only
 var sortable = [];
 for (var item in higest_Economy_bowler) {
@@ -96,4 +90,10 @@ for(let i=0; i<10; i++){
 }
 
 console.log(higest_Economy_bowler);
-*/
+
+};
+
+getNoOfMatchesPlayed(matches_data);
+getNoOfMatchesWonPerTeamPerYear(matches_data);
+getExtraRunsPerTeamForYear(matches_data,deliveries_data);
+getEconomicalBowlersForYear(matches_data, deliveries_data);
