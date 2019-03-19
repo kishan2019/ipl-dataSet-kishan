@@ -1,6 +1,7 @@
 let csvToJson = require('convert-csv-to-json');
 let matches_data = csvToJson.fieldDelimiter(',').getJsonFromCsv('matches.csv');
 let deliveries_data = csvToJson.fieldDelimiter(',').getJsonFromCsv('deliveries.csv');
+console.log(matches_data);
 
 
 //1 Question

@@ -10,16 +10,16 @@ export const getNoOfMatchesPlayed = (data) => {
 export const getNoOfMatchesWonPerTeamPerYear = (data) => {
 
     let myuniqueArr = [];
-    for (let i = 0; i < matches_data.length; i++) {
-        if (!myuniqueArr.includes(parseInt(matches_data[i].season))) myuniqueArr.push(parseInt(matches_data[i].season));
+    for (let i = 0; i < data.length; i++) {
+        if (!myuniqueArr.includes(parseInt(data[i].season))) myuniqueArr.push(parseInt(data[i].season));
     }
     myuniqueArr.sort();
     let parent = {};
     for (let i = 0; i < myuniqueArr.length; i++) {
         let child = {};
-        for (let j = 1; j < matches_data.length; j++) {
-            if (myuniqueArr[i] === parseInt(matches_data[j].season)) {
-                child[matches_data[j].winner] = child.hasOwnProperty(matches_data[j].winner) ? ++child[matches_data[j].winner] : 1;
+        for (let j = 0; j < data.length; j++) {
+            if (myuniqueArr[i] === parseInt(data[j].season)) {
+                child[data[j].winner] = child.hasOwnProperty(data[j].winner) ? ++child[data[j].winner] : 1;
             }
         }
         parent[myuniqueArr[i]] = child;
