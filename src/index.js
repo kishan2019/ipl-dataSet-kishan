@@ -1,18 +1,18 @@
 let csvToJson = require('convert-csv-to-json');
 let matches_data = csvToJson.fieldDelimiter(',').getJsonFromCsv('matches.csv');
 let deliveries_data = csvToJson.fieldDelimiter(',').getJsonFromCsv('deliveries.csv');
-console.log(matches_data);
+
 
 
 //1 Question
 
-/*
-let YearlyPlayedMatchsData = {};
-    for (let j = 1; j < matches_data.length; j++) {
-        YearlyPlayedMatchsData[matches_data[j].season] = YearlyPlayedMatchsData.hasOwnProperty(matches_data[j].season)? ++YearlyPlayedMatchsData[matches_data[j].season] : 1;
-    }
-console.log(YearlyPlayedMatchsData);
-*/
+
+// let YearlyPlayedMatchsData = {};
+//     for (let j = 1; j < matches_data.length; j++) {
+//         YearlyPlayedMatchsData[matches_data[j].season] = YearlyPlayedMatchsData.hasOwnProperty(matches_data[j].season)? ++YearlyPlayedMatchsData[matches_data[j].season] : 1;
+//     }
+// console.log(YearlyPlayedMatchsData);
+
 
 
 //2 Question 
@@ -58,7 +58,7 @@ let matches_id = [];
 // Implement the 4 functions, one for each task.
 // Write unit tests for all 4 functions
 // Use the functions results to dump json files
-/*
+
 let totalballs_perbowlers = {};
 let totalrun_perbowlers = {};
 let higest_Economy_bowler = {};
@@ -97,4 +97,4 @@ for(let i=0; i<10; i++){
 }
 
 console.log(higest_Economy_bowler);
-*/
+

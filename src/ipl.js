@@ -43,6 +43,8 @@ export const getExtraRunsPerTeamForYear = (matches_data, deliveries_data) => {
     return extrarun;
 
 };
+
+
 export const getEconomicalBowlersForYear = (matches_data, deliveries_data) => {
     let totalballs_perbowlers = {};
     let totalrun_perbowlers = {};

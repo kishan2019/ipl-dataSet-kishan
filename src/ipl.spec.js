@@ -34,46 +34,46 @@ describe("IPL module", () => {
 
 
 
-  describe("No. of matches won per team per year, getNoOfMatchesWonPerTeamPerYear", () => {
-    const matchesSample = [{
-      season: '2008',
-      winner: 'Delhi Daredevils'
-    },
-    {
-      season: '2008',
-      winner: 'Delhi Daredevils'
-    },
-    {
-      season: '2008',
-      winner: 'Delhi'
-    },
-    {
-      season: '2009',
-      winner: 'Delhi Daredevils'
-    },
-    {
-      season: '2009',
-      winner: 'Delhi',
-    }
-    ];
+  // describe("No. of matches won per team per year, getNoOfMatchesWonPerTeamPerYear", () => {
+  //   const matchesSample = [{
+  //     season: '2008',
+  //     winner: 'Delhi Daredevils'
+  //   },
+  //   {
+  //     season: '2008',
+  //     winner: 'Delhi Daredevils'
+  //   },
+  //   {
+  //     season: '2008',
+  //     winner: 'Delhi'
+  //   },
+  //   {
+  //     season: '2009',
+  //     winner: 'Delhi Daredevils'
+  //   },
+  //   {
+  //     season: '2009',
+  //     winner: 'Delhi',
+  //   }
+  //   ];
 
-    const expectedResult = {
-       '2008': {
-          'Delhi Daredevils': 2,
-           Delhi: 1 
-          },
-        '2009': {
-           'Delhi Daredevils': 1,
-            Delhi: 1 
-          } 
-        }
+  //   const expectedResult = {
+  //      '2008': {
+  //         'Delhi Daredevils': 2,
+  //          Delhi: 1 
+  //         },
+  //       '2009': {
+  //          'Delhi Daredevils': 1,
+  //           Delhi: 1 
+  //         } 
+  //       }
 
-    test("should exist", () => {
-      expect(getNoOfMatchesWonPerTeamPerYear).toBeDefined();
-      expect(typeof getNoOfMatchesWonPerTeamPerYear(matchesSample)).toEqual("object");
-      expect(getNoOfMatchesWonPerTeamPerYear(matchesSample)).toEqual(expectedResult);
-    });
-  });
+  //   test("should exist", () => {
+  //     expect(getNoOfMatchesWonPerTeamPerYear).toBeDefined();
+  //     expect(typeof getNoOfMatchesWonPerTeamPerYear(matchesSample)).toEqual("object");
+  //     expect(getNoOfMatchesWonPerTeamPerYear(matchesSample)).toEqual(expectedResult);
+  //   });
+  // });
 
 
 
@@ -90,36 +90,3 @@ describe("IPL module", () => {
     });
   });
 });
-
-// const matchesSample = [{
-//     season: '2008',
-//     winner: 'Delhi_Daredevils'
-//   },
-//   {
-//     season: '2008',
-//     winner: 'Delhi_Daredevils'
-//   },
-//   {
-//     season: '2008',
-//     winner: 'chennai'
-//   },
-//   {
-//     season: '2009',
-//     winner: 'chennai'
-//   },
-//   {
-//     season: '2009',
-//     winner: 'Delhi_Daredevils',
-//   }
-// ]
-
-// const expectedResult = {
-//   2008: {
-//     Delhi_Daredevils: 2,
-//     chenni: 1
-//   },
-//   2009: {
-//     Delhi_Daredevils: 1,
-//     chenni: 1
-//   }
-// };

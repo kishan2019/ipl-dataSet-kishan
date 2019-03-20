@@ -1,3 +1,4 @@
+let fs = require('fs');
 let csvToJson = require('convert-csv-to-json');
 let matches_data = csvToJson.fieldDelimiter(',').getJsonFromCsv('matches.csv');
 let deliveries_data = csvToJson.fieldDelimiter(',').getJsonFromCsv('deliveries.csv');
@@ -9,7 +10,7 @@ const getNoOfMatchesPlayed = (data) => {
     for (let j = 1; j < data.length; j++) {
         YearlyPlayedMatchsData[data[j].season] = YearlyPlayedMatchsData.hasOwnProperty(data[j].season)? ++YearlyPlayedMatchsData[matches_data[j].season] : 1;
     }
- console.log(YearlyPlayedMatchsData);
+ return YearlyPlayedMatchsData;
 };
 
 
@@ -30,7 +31,7 @@ for (let i = 0; i < myuniqueArr.length; i++) {
     }
   parent[myuniqueArr[i]] = child; 
 }
-console.log(parent);
+return parent;
 };
 
 //third
@@ -45,7 +46,7 @@ console.log(parent);
              extrarun[deliveries_data[i].bowling_team] = extrarun.hasOwnProperty(deliveries_data[i].bowling_team)? extrarun[deliveries_data[i].bowling_team] + parseInt(deliveries_data[i].extra_runs) : parseInt(deliveries_data[i].extra_runs);
          }
      }
-     console.log(extrarun);
+     return extrarun;
 
 };
 
@@ -53,7 +54,7 @@ console.log(parent);
 //fourth
 
 const getEconomicalBowlersForYear = (matches_data, deliveries_data) => {
-    let totalballs_perbowlers = {};
+let totalballs_perbowlers = {};
 let totalrun_perbowlers = {};
 let higest_Economy_bowler = {};
 
@@ -89,11 +90,28 @@ for(let i=0; i<10; i++){
     higest_Economy_bowler[sortable[i][0]] = sortable[i][1].toFixed(2);
 }
 
-console.log(higest_Economy_bowler);
+return higest_Economy_bowler;
 
 };
 
-getNoOfMatchesPlayed(matches_data);
-getNoOfMatchesWonPerTeamPerYear(matches_data);
-getExtraRunsPerTeamForYear(matches_data,deliveries_data);
-getEconomicalBowlersForYear(matches_data, deliveries_data);
+let jsonObj = {
+    "Number of matches played per year for all the years in IPL" : getNoOfMatchesPlayed(matches_data),
+    "Number of matches won of per team per year in IPL" : getNoOfMatchesWonPerTeamPerYear(matches_data),
+    "Extra runs conceded per team in 2016" : getExtraRunsPerTeamForYear(matches_data,deliveries_data),
+    "Top 10 economical bowlers in 2015" : getEconomicalBowlersForYear(matches_data, deliveries_data)
+}
+ 
+// stringify JSON Object
+var jsonContent = JSON.stringify(jsonObj);
+ 
+fs.writeFile("../ipl_front/data.json", jsonContent, 'utf8', function (err) {
+    if (err) {
+        console.log("An error occured while writing JSON Object to File.");
+        return console.log(err);
+    }
+    console.log("JSON file has been saved.");
+});
+
+
+
+
