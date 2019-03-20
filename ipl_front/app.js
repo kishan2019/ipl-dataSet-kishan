@@ -81,7 +81,7 @@ const visualize = (data) => {
 const visualize1 = (mytemp,mykeys) => {
     Highcharts.chart('container1', {
         chart: {
-            type: 'column'
+            type: 'bar'
         },
         title: {
             text: 'Stacked bar chart'
@@ -91,11 +91,15 @@ const visualize1 = (mytemp,mykeys) => {
         },
         yAxis: {
             min: 1,
-            max:16,
             title: {
                 text: 'Total fruit consumption'
             }
         },
+        plotOptions: {
+            series: {
+              stacking: 'normal'
+            }
+          },
         series: mytemp
     });
 
