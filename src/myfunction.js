@@ -13,7 +13,6 @@ const getNoOfMatchesPlayed = (data) => {
  return YearlyPlayedMatchsData;
 };
 
-
 // second
 const getNoOfMatchesWonPerTeamPerYear = (data) => {
     let myuniqueArr = [];

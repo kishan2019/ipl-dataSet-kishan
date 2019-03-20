@@ -1,7 +1,8 @@
 fetch("data.json").then(function (data) {
     return data.json();
 }).then(function (myjson) {
-   // console.log(myjson[Object.keys(myjson)[3]]);
+    // console.log(myjson[Object.keys(myjson)[3]]);
+   
     let mykeys = Object.keys(Object.values(myjson)[0]);
     let temp = [];
     for (let i = 0; i < mykeys.length; i++) {
@@ -11,6 +12,25 @@ fetch("data.json").then(function (data) {
         temp.push(obj);
     }
     visualize(temp);
+    console.log(Object.values(myjson)[1][2008]["Kolkata Knight Riders"]);
+    //-----------------------------------------------
+    let teams = Object.keys(Object.values(myjson)[1][2008]);
+    mykeys = Object.keys(Object.values(myjson)[1]);
+    // console.log(mykeys);
+    let mytemp = [];
+   for (let i = 0; i < teams.length; i++) {
+        obj = {};
+        temp = [];
+        obj["name"] = teams[i];
+       for(let j=0;j<mykeys.length;j++) {
+        let val = Object.values(myjson)[1][mykeys[j]][teams[i]];
+        temp.push(val);
+       }
+      obj['data'] = temp;
+      mytemp.push(obj);
+   }
+  
+   visualize1(mytemp,mykeys);
     //-----------------------------------------------
      mykeys = Object.keys(Object.values(myjson)[2]);
      temp = [];
@@ -54,6 +74,29 @@ const visualize = (data) => {
             "colorByPoint": true,
             "data": data
         }],
+    });
+
+}
+
+const visualize1 = (mytemp,mykeys) => {
+    Highcharts.chart('container1', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Stacked bar chart'
+        },
+        xAxis: {
+            categories: mykeys
+        },
+        yAxis: {
+            min: 1,
+            max:16,
+            title: {
+                text: 'Total fruit consumption'
+            }
+        },
+        series: mytemp
     });
 
 }

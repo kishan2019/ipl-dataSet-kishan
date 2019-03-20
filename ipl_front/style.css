@@ -1,20 +1,27 @@
 #container {
     min-width: 310px;
-     height: 400px;
-     margin: 0 auto;
+    height: 400px;
+    margin: 0 auto;
+
+}
+
+#container1 {
+    min-width: 310px;
+    min-height: 1200px;
+    margin: 0 auto;
 
 }
 
 #container2 {
     min-width: 310px;
-     height: 400px;
-     margin: 0 auto;
+    height: 400px;
+    margin: 0 auto;
 
 }
 
 #container3 {
     min-width: 310px;
-     height: 400px;
-     margin: 0 auto;
+    height: 400px;
+    margin: 0 auto;
 
 }
