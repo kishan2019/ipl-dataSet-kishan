@@ -130,15 +130,15 @@
         "Royal Challengers Bangalore": 156
     },
     "Top 10 economical bowlers in 2015": {
-        "RN ten Doeschate": "4.00",
-        "J Yadav": "4.14",
-        "V Kohli": "5.45",
-        "R Ashwin": "5.87",
-        "S Nadeem": "6.14",
-        "Parvez Rasool": "6.20",
-        "MC Henriques": "6.56",
-        "Z Khan": "6.58",
-        "M Vijay": "7.00",
-        "GB Hogg": "7.05"
+        "RN ten Doeschate": 4.00,
+        "J Yadav": 4.14,
+        "V Kohli": 5.45,
+        "R Ashwin": 5.87,
+        "S Nadeem": 6.14,
+        "Parvez Rasool": 6.20,
+        "MC Henriques": 6.56,
+        "Z Khan": 6.58,
+        "M Vijay": 7.00,
+        "GB Hogg": 7.05
     }
 }
