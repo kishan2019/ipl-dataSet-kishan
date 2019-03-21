@@ -52,8 +52,7 @@
             "Kings XI Punjab": 7,
             "Deccan Chargers": 6,
             "Kochi Tuskers Kerala": 6,
-            "Delhi Daredevils": 4,
-            "": 1
+            "Delhi Daredevils": 4
         },
         "2012": {
             "Mumbai Indians": 10,
@@ -95,11 +94,10 @@
             "Kings XI Punjab": 3,
             "Sunrisers Hyderabad": 7,
             "Delhi Daredevils": 5,
-            "Mumbai Indians": 10,
-            "": 2
+            "Mumbai Indians": 10
         },
         "2016": {
-            "Rising Pune Supergiants": 5,
+            "Rising Pune Supergiant": 5,
             "Kolkata Knight Riders": 8,
             "Gujarat Lions": 9,
             "Royal Challengers Bangalore": 9,
@@ -120,7 +118,7 @@
         }
     },
     "Extra runs conceded per team in 2016": {
-        "Rising Pune Supergiants": 108,
+        "Rising Pune Supergiant": 108,
         "Mumbai Indians": 102,
         "Kolkata Knight Riders": 122,
         "Delhi Daredevils": 106,
