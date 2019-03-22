@@ -1,5 +1,5 @@
 {
-    "Number of matches played per year for all the years in IPL": {
+    "Numberofmatchesplayedperyear": {
         "2008": 58,
         "2009": 57,
         "2010": 60,
@@ -11,7 +11,7 @@
         "2016": 60,
         "2017": 58
     },
-    "Number of matches won of per team per year in IPL": {
+    "Numberofmatcheswonofperteam": {
         "2008": {
             "Kolkata Knight Riders": 6,
             "Chennai Super Kings": 9,
@@ -97,7 +97,7 @@
             "Mumbai Indians": 10
         },
         "2016": {
-            "Rising Pune Supergiant": 5,
+            "Rising Pune Supergiants": 5,
             "Kolkata Knight Riders": 8,
             "Gujarat Lions": 9,
             "Royal Challengers Bangalore": 9,
@@ -117,8 +117,8 @@
             "Gujarat Lions": 4
         }
     },
-    "Extra runs conceded per team in 2016": {
-        "Rising Pune Supergiant": 108,
+    "Extrarunsperteamin2016": {
+        "Rising Pune Supergiants": 108,
         "Mumbai Indians": 102,
         "Kolkata Knight Riders": 122,
         "Delhi Daredevils": 106,
@@ -127,16 +127,16 @@
         "Sunrisers Hyderabad": 107,
         "Royal Challengers Bangalore": 156
     },
-    "Top 10 economical bowlers in 2015": {
-        "RN ten Doeschate": 4.00,
+    "Top10bowlers": {
+        "RN ten Doeschate": 4,
         "J Yadav": 4.14,
         "V Kohli": 5.45,
         "R Ashwin": 5.87,
         "S Nadeem": 6.14,
-        "Parvez Rasool": 6.20,
+        "Parvez Rasool": 6.2,
         "MC Henriques": 6.56,
         "Z Khan": 6.58,
-        "M Vijay": 7.00,
+        "M Vijay": 7,
         "GB Hogg": 7.05
     }
 }

@@ -1,4 +1,4 @@
-fetch("data.json").then(function (data) {
+fetch("../jsonfiles/data.json").then(function (data) {
     return data.json();
 }).then(function (myjson) {
     // console.log(myjson[Object.keys(myjson)[3]]);
@@ -10,19 +10,16 @@ fetch("data.json").then(function (data) {
         obj["name"] = mykeys[i];
         obj["y"] = Object.values(myjson)[0][mykeys[i]];
         temp.push(obj);
-    }
-    visualize(temp);
+    } visualize(temp);
     //console.log(Object.values(myjson)[1][2008]["Kolkata Knight Riders"]);
 
-    //-----------------------------------------------
+    //Question 2 ----------------------------------------------------------------------
 
-     mykeys = Object.keys(Object.values(myjson)[1]);
-      // console.log(mykeys);
-     let teams = [];
-     for (let i = 0; i < mykeys.length; i++) {
-         teams.push(Object.keys(Object.values(myjson)[1][mykeys[i]]));
-     }
-     //console.log(teams);
+    mykeys = Object.keys(Object.values(myjson)[1]);
+    let teams = [];
+    for (let i = 0; i < mykeys.length; i++) {
+        teams.push(Object.keys(Object.values(myjson)[1][mykeys[i]]));
+    }
     let myteam = teams.flat();
     let teamsno = [...new Set(myteam)];
     console.log(teamsno);
@@ -34,24 +31,20 @@ fetch("data.json").then(function (data) {
         obj["name"] = teamsno[i];
         for (let j = 0; j < mykeys.length; j++) {
             let val;
-            if(!isNaN(Object.values(myjson)[1][mykeys[j]][teamsno[i]])){
-                 val = Object.values(myjson)[1][mykeys[j]][teamsno[i]];
-            } else{
+            if (!isNaN(Object.values(myjson)[1][mykeys[j]][teamsno[i]])) {
+                val = Object.values(myjson)[1][mykeys[j]][teamsno[i]];
+            } else {
                 val = 0;
             }
-            
+
             temp.push(val);
         }
         obj['data'] = temp;
         mytemp.push(obj);
     }
-
     visualize1(mytemp, mykeys);
 
-
-
-
-    //-----------------------------------------------
+    //Question 3 -----------------------------------------------
     mykeys = Object.keys(Object.values(myjson)[2]);
     temp = [];
     for (let i = 0; i < mykeys.length; i++) {
@@ -66,7 +59,7 @@ fetch("data.json").then(function (data) {
 
 
 
-    //----------------------------------------------
+    // Question 4 ----------------------------------------------
     mykeys = Object.keys(Object.values(myjson)[3]);
     temp = [];
     for (let i = 0; i < mykeys.length; i++) {
@@ -152,7 +145,6 @@ const visualize2 = (data) => {
             "data": data
         }],
     });
-
 }
 
 const visualize3 = (data) => {
@@ -177,5 +169,4 @@ const visualize3 = (data) => {
             "data": data
         }],
     });
-
 }
