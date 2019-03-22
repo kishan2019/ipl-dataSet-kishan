@@ -1,4 +1,4 @@
-fetch("../jsonfiles/data.json").then(function (data) {
+fetch("https://api.myjson.com/bins/15o3oa").then(function (data) {
     return data.json();
 }).then(function (myjson) {
     // console.log(myjson[Object.keys(myjson)[3]]);
@@ -88,7 +88,7 @@ const visualize = (data) => {
             }
         },
         "series": [{
-            "name": "Years",
+            "name": "Matches",
             "colorByPoint": true,
             "data": data
         }],

@@ -6,27 +6,23 @@ csv()
         csv()
             .fromFile('../jsonfiles/csvfiles/deliveries.csv')
             .then(deliveriesData => {
-
                 let jsonObj = {
                     Numberofmatchesplayedperyear: getNoOfMatchesPlayed(matchesData),
                     Numberofmatcheswonofperteam: getNoOfMatchesWonPerTeamPerYear(matchesData),
                     Extrarunsperteamin2016: getExtraRunsPerTeamForYear(matchesData, deliveriesData),
                     Top10bowlers: getEconomicalBowlersForYear(matchesData, deliveriesData)
                 }
-
-                fs.writeFile("../jsonfiles/data.json", JSON.stringify(jsonObj), 'utf8', function (err) {
+                fs.writeFile("/../../Music/data.json", JSON.stringify(jsonObj), 'utf8', function (err) {
                     if (err) {
                         console.log("An error occured while writing JSON Object to File.");
                         return console.log(err);
                     }
                     console.log("JSON file has been saved.");
                 });
-
-
-            })
+         })
     })
 
-
+//first
 const getNoOfMatchesPlayed = (data) => {
     let YearlyPlayedMatchsData = {};
     for (let j = 1; j < data.length; j++) {
