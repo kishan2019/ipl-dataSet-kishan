@@ -1,8 +1,50 @@
-fetch("https://api.myjson.com/bins/15o3oa").then(function (data) {
-    return data.json();
-}).then(function (myjson) {
-    // console.log(myjson[Object.keys(myjson)[3]]);
+//https://api.myjson.com/bins/15o3oa
 
+fetch("../jsonfiles/data.json").then(function (data) {
+    return data.json();
+}).then( myjson => {
+    graphmatchesplayedperyear(matchesplayedperyear(myjson));
+    graphExtrarunsperteamin2016(Extrarunsperteamin2016(myjson));
+    graphTop10bowlers(Top10bowlers(myjson));
+    matcheswonofperteam(perTeamwonMatch(myjson), key(myjson));
+});
+
+    const perTeamwonMatch = (myjson) => {
+        mykeys = Object.keys(Object.values(myjson)[1]);
+        let teams = [];
+        for (let i = 0; i < mykeys.length; i++) {
+            teams.push(Object.keys(Object.values(myjson)[1][mykeys[i]]));
+        }
+        let myteam = teams.flat();
+        let teamsno = [...new Set(myteam)];
+        console.log(teamsno);
+        let mytemp = [];
+        for (let i = 0; i < teamsno.length; i++) {
+            obj = {};
+            temp = [];
+            obj["name"] = teamsno[i];
+            for (let j = 0; j < mykeys.length; j++) {
+                let val;
+                if (!isNaN(Object.values(myjson)[1][mykeys[j]][teamsno[i]])) {
+                    val = Object.values(myjson)[1][mykeys[j]][teamsno[i]];
+                } else {
+                    val = 0;
+                }
+    
+                temp.push(val);
+            }
+            obj['data'] = temp;
+            mytemp.push(obj);
+        }
+        return mytemp;
+    }
+
+    const key = (myjson) => {
+        return Object.keys(Object.values(myjson)[1]);
+        
+    }
+
+const matchesplayedperyear = (myjson) => {
     let mykeys = Object.keys(Object.values(myjson)[0]);
     let temp = [];
     for (let i = 0; i < mykeys.length; i++) {
@@ -10,68 +52,35 @@ fetch("https://api.myjson.com/bins/15o3oa").then(function (data) {
         obj["name"] = mykeys[i];
         obj["y"] = Object.values(myjson)[0][mykeys[i]];
         temp.push(obj);
-    } visualize(temp);
-    //console.log(Object.values(myjson)[1][2008]["Kolkata Knight Riders"]);
-
-    //Question 2 ----------------------------------------------------------------------
-
-    mykeys = Object.keys(Object.values(myjson)[1]);
-    let teams = [];
-    for (let i = 0; i < mykeys.length; i++) {
-        teams.push(Object.keys(Object.values(myjson)[1][mykeys[i]]));
     }
-    let myteam = teams.flat();
-    let teamsno = [...new Set(myteam)];
-    console.log(teamsno);
+    return temp;
+}
 
-    let mytemp = [];
-    for (let i = 0; i < teamsno.length; i++) {
-        obj = {};
-        temp = [];
-        obj["name"] = teamsno[i];
-        for (let j = 0; j < mykeys.length; j++) {
-            let val;
-            if (!isNaN(Object.values(myjson)[1][mykeys[j]][teamsno[i]])) {
-                val = Object.values(myjson)[1][mykeys[j]][teamsno[i]];
-            } else {
-                val = 0;
-            }
-
-            temp.push(val);
-        }
-        obj['data'] = temp;
-        mytemp.push(obj);
-    }
-    visualize1(mytemp, mykeys);
-
-    //Question 3 -----------------------------------------------
-    mykeys = Object.keys(Object.values(myjson)[2]);
-    temp = [];
+const Extrarunsperteamin2016 = (myjson) => {
+    let mykeys = Object.keys(Object.values(myjson)[2]);
+    let temp = [];
     for (let i = 0; i < mykeys.length; i++) {
         obj = {};
         obj["name"] = mykeys[i];
         obj["y"] = Object.values(myjson)[2][mykeys[i]];
         temp.push(obj);
     }
-    visualize2(temp);
+    return temp;
+}
 
-
-
-
-
-    // Question 4 ----------------------------------------------
-    mykeys = Object.keys(Object.values(myjson)[3]);
-    temp = [];
+const Top10bowlers = (myjson) => {
+    let mykeys = Object.keys(Object.values(myjson)[3]);
+    let temp = [];
     for (let i = 0; i < mykeys.length; i++) {
         obj = {};
         obj["name"] = mykeys[i];
         obj["y"] = Object.values(myjson)[3][mykeys[i]];
         temp.push(obj);
     }
-    visualize3(temp);
-});
+    return temp;
+}
 
-const visualize = (data) => {
+const graphmatchesplayedperyear = (data) => {
     Highcharts.chart('container', {
         chart: {
             type: 'column'
@@ -93,10 +102,9 @@ const visualize = (data) => {
             "data": data
         }],
     });
-
 }
 
-const visualize1 = (mytemp, mykeys) => {
+const matcheswonofperteam = (mytemp, mykeys) => {
     Highcharts.chart('container1', {
         chart: {
             type: 'bar'
@@ -120,10 +128,9 @@ const visualize1 = (mytemp, mykeys) => {
         },
         series: mytemp
     });
-
 }
 
-const visualize2 = (data) => {
+const graphExtrarunsperteamin2016 = (data) => {
     Highcharts.chart('container2', {
         chart: {
             type: 'column'
@@ -147,7 +154,7 @@ const visualize2 = (data) => {
     });
 }
 
-const visualize3 = (data) => {
+const graphTop10bowlers = (data) => {
     Highcharts.chart('container3', {
         chart: {
             type: 'column'
